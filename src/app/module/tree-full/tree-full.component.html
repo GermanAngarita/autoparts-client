@@ -1,0 +1,17 @@
+<app-nav-public></app-nav-public>
+
+<div class="container-fluid mt-5">
+    <div class="row">
+        <div *ngFor="let array of arrayCodes" class="col-lg-4 mb-3">
+            <div class="border rounded p-3">
+                <div class="d-flex justify-content-start align-items-center">
+                    <img width="30px;" [src]="tree[array].image" alt="">
+                    <strong class="me-2">{{tree[array].name}}</strong>
+                </div>
+                <div>
+                    <!-- <p>{{}}</p> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
