@@ -9,6 +9,9 @@ import { FindByVinModule } from './module/find-by-vin/find-by-vin.module';
 import { HttpClientModule } from '@angular/common/http';
 import { TreeFullRoutingModule } from './module/tree-full/tree-full-routing.module';
 import { TreeFullModule } from './module/tree-full/tree-full.module';
+import { FindByVinRoutingModule } from './module/find-by-vin/find-by-vin-routing.module';
+import { HomeRoutingModule } from './module/home/home-routing.module';
+import { HomeModule } from './module/home/home.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,9 @@ import { TreeFullModule } from './module/tree-full/tree-full.module';
     HttpClientModule,
     RouterModule,
     AppRoutingModule,
+    HomeRoutingModule,
+    HomeModule,
+    FindByVinRoutingModule,
     FindByVinModule,
     TreeFullRoutingModule,
     TreeFullModule

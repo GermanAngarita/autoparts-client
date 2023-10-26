@@ -6,6 +6,10 @@ import { NoPreloading, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: '',
+    loadChildren: () => import('./module/home/home-routing.module').then( m => m.HomeRoutingModule )
+  },
+  {
     path: 'find-by-vin',
     loadChildren: () => import('./module/find-by-vin/find-by-vin-routing.module').then( m => m.FindByVinRoutingModule )
   },

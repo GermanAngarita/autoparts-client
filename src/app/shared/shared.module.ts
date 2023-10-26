@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavPublicComponent } from './nav-public/nav-public.component';
-
+import { FormsModule } from '@angular/forms'; 
 
 
 @NgModule({
@@ -12,7 +12,7 @@ import { NavPublicComponent } from './nav-public/nav-public.component';
     NavPublicComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,FormsModule
   ]
 })
 export class SharedModule { }
