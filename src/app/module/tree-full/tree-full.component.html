@@ -1,16 +1,52 @@
 <app-nav-public></app-nav-public>
 
 <div class="container-fluid mt-5">
+
+    <div class="row">
+        <div class="col-lg-6 d-flex justify-content-center align-items-center">
+            <div *ngIf="model_image" class="w-100 d-flex justify-content-center align-items-center">
+                <img class="img-fluid" [src]="model_image" alt="Imagen del Modelo">
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="border p-3 rounded mb-3">
+                <h1 class="fw-bold">
+                    {{client.mark}} {{client.model}}
+                </h1>
+                <p>
+                    <span class="me-2 mb-3 badge bg-secondary">{{modelInfo['catalog code']}}</span>
+                    <span class="me-2 mb-3 badge bg-secondary">{{modelInfo['weather type']}}</span>
+                    <span class="me-2 mb-3 badge bg-secondary">{{modelInfo['transaxle']}}</span>
+                    <span class="me-2 mb-3 badge bg-secondary">{{modelInfo['engine type']}}</span>
+                    <span class="me-2 mb-3 badge bg-secondary">{{modelInfo['fuel']}}</span>
+                    <span class="me-2 mb-3 badge bg-secondary">{{modelInfo['body']}}</span>
+                    <span class="me-2 mb-3 badge bg-secondary">{{modelInfo['capacity']}}</span>
+                    <span class="me-2 mb-3 badge bg-secondary">{{modelInfo['steering']}}</span>
+                    
+                </p>
+                <button (click)="irA('find-by-vin')" class="btn-light btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+                    Volver
+                </button>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div *ngFor="let array of arrayCodes" class="col-lg-4 mb-3">
-            <div class="border rounded p-3">
+            <div *ngIf="tree[array]" class="border rounded p-3">
                 <div class="d-flex justify-content-start align-items-center">
-                    <img width="30px;" [src]="tree[array].image" alt="">
-                    <strong class="me-2">{{tree[array].name}}</strong>
+                    <img width="45px;" [src]="tree[array].image" alt="">
+                    <div class="w-100">
+                        <strong class="me-2">{{tree[array].name}}</strong>
+                    </div>
+
+                    <div>
+                        <button (click)="verDetalle(tree[array])" class="btn-primary btn btn-sm d-flex justifu-content-center aling-itmes-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="white" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg>
+                        </button>
+                     </div>
                 </div>
-                <div>
-                    <!-- <p>{{}}</p> -->
-                </div>
+                
             </div>
         </div>
     </div>

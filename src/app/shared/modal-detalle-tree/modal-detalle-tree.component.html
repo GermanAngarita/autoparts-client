@@ -1,0 +1,70 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">
+        Detalle de partes
+    </h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modalActived.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="w-100 d-flex justify-content-center align-items-center">
+                    <img width="300px" [src]="tree.image" alt="Logo">
+                </div>
+                <div class="w-100 d-flex justify-content-center align-items-center">
+                   <h2 class="fw-bold">{{tree.name}}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div *ngFor="let node of tree.nodes" class="col-lg-6 mb-2">
+                <div class="border bg-light p-1 rounded">
+                    <span>{{node.node_name}}</span>
+                </div>
+                <div>
+                    <small>{{node.node_descr}}</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div *ngFor="let array of arrayCodes" class="col-lg-12 mb-3">
+                <div *ngIf="tree.branch && tree.branch[array]" class="border rounded p-3">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <img width="45px;" [src]="tree.branch[array].image" alt="">
+                        <div class="w-100">
+                            <strong class="me-2">{{tree.branch[array].name}}</strong>
+                        </div>
+                        <div *ngIf="tree.branch[array] && tree.branch[array].branch">
+                            <button (click)="verDetalles(tree.branch[array])" class="btn-primary btn btn-sm d-flex justifu-content-center aling-itmes-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="white" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg>
+                            </button>
+                         </div>
+                    </div>
+                    <div *ngIf="tree.branch[array].nodes">
+                        <strong>Partes</strong>
+                    </div>
+                    <div *ngIf="tree.branch[array].nodes">
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex flex-row justify-content-between" *ngFor="let node of tree.branch[array].nodes">
+                                <span>{{node.node_name}}</span>
+                                <div>
+                                    <button class="btn btn-sm btn-success d-flex justify-content-center align-items-center">
+                                        Agregar <svg xmlns="http://www.w3.org/2000/svg" fill="white" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M128 64c0-35.3 28.7-64 64-64H352V128c0 17.7 14.3 32 32 32H512V448c0 35.3-28.7 64-64 64H192c-35.3 0-64-28.7-64-64V336H302.1l-39 39c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l80-80c9.4-9.4 9.4-24.6 0-33.9l-80-80c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l39 39H128V64zm0 224v48H24c-13.3 0-24-10.7-24-24s10.7-24 24-24H128zM512 128H384V0L512 128z"/></svg>
+                                    </button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modalActived.close('Save click')">Cerrar</button>
+</div>

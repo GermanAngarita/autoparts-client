@@ -49,7 +49,48 @@ export module Vin {
         "Engine Type": ""
     }
 
+    export interface model_info {
+        "catalog code":                            string;
+        "weather type":                            string;
+        transaxle:                                 string;
+        "engine type":                             string;
+        fuel:                                      string;
+        body:                                      string;
+        capacity:                                  string;
+        steering:                                  string;
+    }
+
+    export const model_info: model_info = {
+        "catalog code": "",
+        "weather type": "",
+        transaxle: "",
+        "engine type": "",
+        fuel: "",
+        body: "",
+        capacity: "",
+        steering: ""
+    }
+
     export interface tree {
         
+    }
+
+    export interface node {
+        node_name: string;
+        node_descr: string;
+        node_applicability: string;
+        node_id: string;
+        image: string;
+    }
+
+    export interface treeBranch {
+        [key: string]: treeDetails;
+    }
+
+    export interface treeDetails {
+        name: string;
+        image: string;
+        branch?: treeBranch;
+        nodes?: Array<node>;
     }
 }

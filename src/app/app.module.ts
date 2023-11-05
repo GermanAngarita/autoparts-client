@@ -12,6 +12,7 @@ import { TreeFullModule } from './module/tree-full/tree-full.module';
 import { FindByVinRoutingModule } from './module/find-by-vin/find-by-vin-routing.module';
 import { HomeRoutingModule } from './module/home/home-routing.module';
 import { HomeModule } from './module/home/home.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HomeModule } from './module/home/home.module';
     FindByVinRoutingModule,
     FindByVinModule,
     TreeFullRoutingModule,
-    TreeFullModule
+    TreeFullModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

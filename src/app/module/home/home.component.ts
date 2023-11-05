@@ -20,4 +20,6 @@ export class HomeComponent implements OnInit {
   public irA = ( ruta: string ) => {
     this.router.navigate([ ruta ])
   }
+
+
 }
