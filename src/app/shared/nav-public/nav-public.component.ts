@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-public',
@@ -6,5 +7,25 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav-public.component.css']
 })
 export class NavPublicComponent {
+  vinBuscado: string = '';
 
+  constructor(
+    private router: Router
+  ){}
+  onInputChange(value: string): void {
+    // Esta función se ejecutará cada vez que el usuario escriba en el input.
+    this.vinBuscado = value; // Actualiza la propiedad vinBuscado con el valor del input.
+  }
+
+  consulta(vin: string): void {
+    // Esta función se ejecutará cuando se haga clic en el botón.
+    console.log('VIN Buscado:', vin); // Muestra el valor en la consola del navegador.
+    // Aquí puedes realizar otras acciones, como realizar una solicitud a una API.
+  }
+
+ public irA = (ruta: string ) => {
+  this.router.navigate([ruta])
+ }
 }
+
+
