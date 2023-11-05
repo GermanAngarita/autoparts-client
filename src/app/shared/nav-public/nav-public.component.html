@@ -1,27 +1,52 @@
-<body>
-  <nav>
-    <div class="left-section">
-      <a href="pagina1.html"><img src="../../../assets/img/banners/logo.jpg" alt="Enlace Izquierdo"></a>
-      <div class="icono">
-        <h3>Busca tu vehículo</h3>
-      </div>
+<nav class="navbar navbar-expand-lg bg-body-white border-bottom">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img class="logo-navbar" src="../../../assets/img/banners/logo.jpg" alt="Logo Autoparts">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item seleccionable" routerLinkActive="active fw-bold">
+          <a class="nav-link" (click)="irA('/')">Home</a>
+        </li>
+        <li class="nav-item seleccionable" routerLinkActive="active fw-bold">
+          <a class="nav-link" (click)="irA('find-by-vin')" >Buscar Partes</a>
+        </li>
+      </ul>
     </div>
+  </div>
+</nav>
 
-    <div class="search-bar">
-      <input
-        #vinInput
-        (input)="onInputChange(vinInput.value)"
-        placeholder="Escribe el VIN"
-        type="text"
-      >
-      <button a class="blue-button"(click)="consulta(vinInput.value)">
-        <a  class="blue-button" href="">Buscar</a>
-      </button>
-    </div>
 
-    <div class="right-section">
-      <a class="userimage" href="pagina2.html"><img src="../../../assets/img/banners/user.jpg" alt="Enlace Derecho"></a>
+
+
+<!-- <nav>
+  <div class="left-section">
+    <a href="pagina1.html">
+      <img src="../../../assets/img/banners/logo.jpg" alt="Enlace Izquierdo">
+    </a>
+    <div class="icono">
+      <h3>Busca tu vehículo</h3>
     </div>
-  </nav>
-</body>
+  </div>
+
+  <div class="search-bar">
+    <input
+      #vinInput
+      (input)="onInputChange(vinInput.value)"
+      placeholder="Escribe el VIN"
+      type="text"
+    >
+    <button a class="blue-button"(click)="consulta(vinInput.value)">
+      <a  class="blue-button" href="">Buscar</a>
+    </button>
+  </div>
+
+  <div class="right-section">
+    <a class="userimage" href="pagina2.html"><img src="../../../assets/img/banners/user.jpg" alt="Enlace Derecho"></a>
+  </div>
+</nav> -->
+
 
