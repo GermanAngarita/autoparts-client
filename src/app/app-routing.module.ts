@@ -17,6 +17,10 @@ const routes: Routes = [
     path: 'tree-full',
     loadChildren: () => import('./module/tree-full/tree-full-routing.module').then( m => m.TreeFullRoutingModule )
   },
+  {
+    path: 'tree-parts',
+    loadChildren: () => import('./module/tree-parts/tree-parts-routing.module').then( m => m.TreePartsRoutingModule )
+  },
 ];
 
 @NgModule({

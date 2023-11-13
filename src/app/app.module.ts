@@ -13,6 +13,8 @@ import { FindByVinRoutingModule } from './module/find-by-vin/find-by-vin-routing
 import { HomeRoutingModule } from './module/home/home-routing.module';
 import { HomeModule } from './module/home/home.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TreePartsModule } from './module/tree-parts/tree-parts.module';
+import { TreePartsRoutingModule } from './module/tree-parts/tree-parts-routing.module';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FindByVinModule,
     TreeFullRoutingModule,
     TreeFullModule,
+    TreePartsRoutingModule,
+    TreePartsModule,
     NgbModule
   ],
   providers: [],

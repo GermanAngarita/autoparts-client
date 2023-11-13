@@ -1,0 +1,53 @@
+<app-nav-public></app-nav-public>
+
+<div class="container-fluid mt-5">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="border rounded p-3">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="fw-bold">{{client.mark}} {{client.model}}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="row">
+        <div *ngFor="let img of parts.image" class="col-lg-6 mb-3 p-3">
+            <img class="img-fluid" [src]="img" alt="Imagen de referencia">
+        </div>
+        <div class="col-lg-6  mb-3 p-3 overflow-auto bg-light">
+            <div style="max-height: 300px;" class="row">
+                <div *ngFor="let part of parts.parts" class="col-lg-12 mb-3">
+                    <div class="border p-3 rounded d-flex flex-column bg-white">
+                        <div class="d-flex flex-row justify-content-between">
+                            <span class="fw-bold">
+                                #{{part.standart.part_number}}
+                            </span>
+        
+                            <span>
+                                {{part.standart.part_code}}
+                            </span>
+                        </div>
+                        <div>
+                            <p class="lead">{{part.standart.part_name}}</p>
+                        </div>
+                        <div class="d-flex flex-row justify-content-between">
+                            <span>
+                                Cantidad: {{part.standart.part_quantity}}
+                            </span>
+        
+                            <span>
+                                Cantidad: {{part.standart.type}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>

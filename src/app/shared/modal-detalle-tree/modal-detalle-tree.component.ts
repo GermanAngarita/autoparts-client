@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Vin } from 'src/app/interfaces/Vins/vins';
 import { ModalesServiceService } from 'src/app/services/modales-service/modales-service.service';
@@ -10,6 +11,9 @@ import { ModalesServiceService } from 'src/app/services/modales-service/modales-
 })
 export class ModalDetalleTreeComponent implements OnInit {
 
+  public ssd: string = '';
+  public lang: string = '';
+  public link: string = '';
   public tree: Vin.treeDetails = {
     name: '',
     image: ''
@@ -17,9 +21,19 @@ export class ModalDetalleTreeComponent implements OnInit {
   public arrayCodes: Array<string> = []
   constructor(
     public modalActived: NgbActiveModal,
-    private modalesService: ModalesServiceService
+    private modalesService: ModalesServiceService,
+    private router: Router,
+    private routerActived: ActivatedRoute
   ){
-    
+    this.routerActived.queryParams.subscribe( ( params: Params ) => {
+      console.log('params', params)
+      if (params['ssd']) {
+        this.ssd = params['ssd'];
+        this.lang = params['lang'];
+        this.link = params['link'];
+        // this.consultaTree();
+      }
+    } )
   }
   ngOnInit(): void {
     this.parseTree();
@@ -38,5 +52,17 @@ export class ModalDetalleTreeComponent implements OnInit {
       return;
     }
     this.modalesService.treeModal( tree )
+  }
+
+  public verParte = ( node_id: string ) => {
+    this.router.navigate(['tree-parts'], {
+      queryParams: {
+        node_id: node_id,
+        ssd: this.ssd,
+        lang: this.lang,
+        link: this.link
+      }
+    })
+    this.modalActived.close('Closed')
   }
 }

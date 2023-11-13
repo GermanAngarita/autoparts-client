@@ -43,4 +43,22 @@ export class FindByVinService {
       return error
     }
   }
+
+  public TreeNodePartsGet = ( ssd: string, lang: string, link: string, group: string ): Observable<any> => {
+    const params = new HttpParams()
+    .append('ssd', ssd)
+    .append('lang', lang)
+    .append('link', link)
+    .append('group', group)
+    .append('api_key', this.api_key );
+
+    const headers = new HttpHeaders()
+    .append('Accept', '*/*')
+
+    try {
+      return this.http.get( this.baseURL + environment.apiVin.paths.TreeNodePartsGet, { params: params, headers: headers } );
+    } catch (error: any) {
+      return error
+    }
+  }
 }
